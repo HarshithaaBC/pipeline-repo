@@ -13,9 +13,12 @@ pipeline {
     //     // timestamps()
     // }
    
-stages {
-        stage('test'){
-            steps{
+stages
+{
+        stage('test')
+{
+            steps
+{
                 cleanWs()
                 sh """
                 echo "helloWorld" > a
@@ -26,11 +29,14 @@ stages {
                 sh "ls -lart && pwd"
             }
         }
-        stage('Hello') {
-            // options{
+        stage('Hello') 
+{
+            // options
+{
             //     retry(3)
             // }
-            steps {
+            steps 
+{
                 // ÷cleanWs()
                 echo 'Hello World'
                 // sh 'mkdir $folder'
@@ -39,7 +45,8 @@ stages {
                 print BUILD_URL
                 // sh "echo tool name is $tool"
                 // print pet
-                retry(3){
+                retry(3)
+{
                     sh "ls -lart"
                     // sleep 60
                 }
