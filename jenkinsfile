@@ -12,7 +12,8 @@ pipeline {
     //     // timeout(time:20,unit:'SECONDS')
     //     // timestamps()
     // }
-    stages {
+   
+stages {
         stage('test'){
             steps{
                 cleanWs()
