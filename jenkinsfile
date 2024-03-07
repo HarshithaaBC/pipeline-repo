@@ -2,16 +2,16 @@ pipeline {
     agent any
     
     triggers{
-        // cron('* * * * *')
+         cron('* * * * *')
         pollSCM('* * * * *')
     }
-    // options{
-    //     // retry(3)
-    //     // buildDiscarder(logRotator(numToKeepStr: '10', daysToKeepStr: '30'))
-    //     // disableConcurrentBuilds()
-    //     // timeout(time:20,unit:'SECONDS')
-    //     // timestamps()
-    // }
+    options{
+    retry(3)
+     buildDiscarder(logRotator(numToKeepStr: '10', daysToKeepStr: '30'))
+    disableConcurrentBuilds()
+    timeout(time:20,unit:'SECONDS')
+    timestamps()
+    }
    
 stages
 {
@@ -31,15 +31,15 @@ stages
         }
         stage('Hello') 
 {
-            // options
+            options
 {
-            //     retry(3)
-            // }
+              retry(3)
+             }
             steps 
 {
-                // ÷cleanWs()
+                cleanWs()
                 echo 'Hello World'
-                // sh 'mkdir $folder'
+                //sh 'mkdir $folder'
                 sh 'ls -lart'
                 sh 'pwd'
                 print BUILD_URL
